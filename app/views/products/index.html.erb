@@ -1,2 +1,36 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<div class="container">
+	
+  	<div class="row">
+    	<div class="col-sm-5">
+    		<div class = "scroll">
+			<ul>
+				<h4>My Saved Products:</h4>
+				<%@products.each do |product| %>
+
+				<!-- if todo.user_id == session[:current_user_id] -->
+				<br/>
+				<div class="my_products">
+
+					<h5>	<%=product.name%> </h5>
+					<h5>	Price: $<%=product.price%> </h5>
+					<h5>	Category: <%=product.category%> </h5>
+					<img src="<%=product.photo_url%>" height="200" width="200"><br/><br/>
+					<h5>	Desired Price: $<%=product.desired_price%> </h5>
+					<button class= "btn btn-danger">Update</button><br/><br/>
+				</div>
+
+				<!-- end -->
+
+				<% end %>
+			</ul>
+			</div>
+		</div>
+		
+		<div class="col-sm-7">
+			 <h4>Product Analytics:</h4>
+			 <div id="piechart"></div><br/>
+			 <div id="chart_div"></div><br/>
+		</div>
+	      
+    </div>
+</div>

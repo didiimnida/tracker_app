@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  get 'products/index'
-
+  get '/searches' => 'searches#search'
+  get '/search' => 'searches#index'
+  get '/about' => 'welcome#about'
+ 
   root 'welcome#index'
   post 'sessions' => 'sessions#create'
-  delete 'sessions' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'  #This should be delete, but changed to get so use in navbar. 
   resources :shoppers
   resources :products
 end
