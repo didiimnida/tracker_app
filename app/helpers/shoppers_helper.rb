@@ -10,7 +10,7 @@ module ShoppersHelper
 			    :from => "Tracker App <postmaster@#{domain}>",
 			    :to => "#{email}",
 			    :subject => "WELCOME!",
-			    :text => "Welcome to the Tracker App!"
+			    :text => "Welcome to the Tracker App! Login now to search millions of products and start tracking price changes!"
 			}
 
 			options = {
@@ -29,7 +29,7 @@ module ShoppersHelper
 			auth_token = ENV['AUTH_TOKEN']
 			@client = Twilio::REST::Client.new account_sid, auth_token
 	 
-			message = @client.account.messages.create(:body => "Welcome to the Tracker App!",
+			message = @client.account.messages.create(:body => "Welcome to the Tracker App! Login now to track price changes of millions of products!",
 			    :to => "#{mobile}",    
 			    :from => "+18169120447")   
 		end
