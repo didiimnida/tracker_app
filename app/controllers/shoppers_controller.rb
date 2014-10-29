@@ -1,7 +1,5 @@
 class ShoppersController < ApplicationController
 	include ShoppersHelper
-	def index
-	end
 
 	def create
 		@shopper = Shopper.new shopper_params
@@ -18,6 +16,22 @@ class ShoppersController < ApplicationController
             # because there is a @shopper instance variable now.
             render "welcome/index"
         end
+	end
+
+	def update
+		@shopper = Shopper.find(params[:id])
+	
+		if @shopper.update shopper_params
+			redirect_to edit_shopper_path(@shopper)
+			flash[:notice] = "Your account has been updated!"
+		else
+			render :edit
+		end
+		#Put info into database.
+	end
+
+	def edit
+		@shopper = current_shopper
 	end
 
 	def shopper_params

@@ -1,21 +1,47 @@
+/*General Settings:*/
 body{
-	font-family: 'Roboto Slab', sans-serif;
+	font-family: 'Play', sans-serif;
 	border-radius: 0 !important;
+	font-size: 18px;
 }
 
 h4{
 	color: #d9534f;
 	text-align: left;
+	margin-left: 5px;
+
 }
 
 h5{
 	padding:0px 5px 0px 5px;
-	font-family: 'Roboto Slab', sans-serif;
 	color: #2C3539;
+	font-size: 18px;
 }
 
-.search_results{
+img{
 	border: solid #E5E4E2 2px;
+	border-radius: 20px;
+	text-align: center;
+}
+
+/*.products_bar{
+	border: solid white 2px;
+	border-radius: 10px;
+	background-color: #eee;
+}*/
+
+/*Navbar Settings:*/
+.navbar-inverse .navbar-brand {
+	color: #d9534f;
+}
+
+.navbar {
+	border-radius: 0px;
+}
+
+/*Search Page Settings:*/
+.search_results{
+	border: solid black 2px;
 	border-radius: 5px;
 	overflow-y: scroll;
 	max-width: 500px;
@@ -29,30 +55,31 @@ h5{
 	text-align: left;
 }
 
-#{
-	position: inline;
-}
-
-.navbar-inverse .navbar-brand {
-	color: #d9534f;
-}
-
-#navbar_fix{
-	border-radius: 0 !important;
-}
-
+/*Dashboard Settings:*/
 .my_products{
 	border: solid black 2px;
 	border-radius: 5px;
 }
 
-
-img{
-	border: solid #E5E4E2 2px;
-	border-radius: 5px;
+.scroll{
+	max-height: 1560px;
+/*	min-height: 1500px;*/
+	overflow-y: scroll;
+  	margin:0 auto;
 	text-align: center;
 }
 
+#product_delete {
+	margin-top: 5px;
+	margin-right: 300px;
+	color:#d9534f;	
+}
+
+.red_plus{
+	color: #d9534f;
+}
+
+/*Registration Page Settings:*/
 #create_account{
   max-width: 500px;
   border: 5px solid #eee;
@@ -67,28 +94,32 @@ img{
   margin-top: 50px; 
 }
 
-.scroll{
-	max-height: 1000px;
-	min-height: 1000px;
-	overflow-y: scroll;
-  	margin:0 auto;
-	text-align: center;
-}
-
-#piechart{
-	border: solid black 2px;
+/*Chart Settings:*/
+#piechart {
+	border: solid #eee 2px;
 	border-radius: 5px;
 	margin:20px 0px 0px 0px;
 /*	margin:0 auto;*/
-	width: 500px; 
-	height: 392px;
+
+	height: 500px;
 }
 
 #chart_div{
-	border: solid black 2px;
+	border: solid #eee 2px;
 	border-radius: 5px;
 	margin:20px 0px 0px 0px;
 	/*margin:0 auto;*/
-	width: 500px; 
-	height: 392px;
+
+	height: 500px;
 }
+
+#histopie{
+	border: solid #eee 2px;
+	border-radius: 5px;
+	margin:20px 0px 0px 0px;
+/*	margin:0 auto;*/
+	height: 500px;
+}
+
+
+

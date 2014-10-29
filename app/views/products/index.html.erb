@@ -1,36 +1,65 @@
 <div class="container">
-	
   	<div class="row">
-    	<div class="col-sm-5">
+    	<div class="col-sm-5 products_bar">
     		<div class = "scroll">
-			<ul>
-				<h4>My Saved Products:</h4>
-				<%@products.each do |product| %>
+				<ul>
+					<%@products.each do |product| %>
+					<br/>
+					<!-- Delete & Show Icons -->
+					<div class="my_products" data-product-id="<%=product.id%>">
+						<h4 class="product_delete"><span class="glyphicon glyphicon-remove">  </span><a href='/products/<%=product.id%>'><span class="glyphicon glyphicon-eye-open"></a></h4>
+					<!-- Panel for name & price: -->
+						<div class="panel panel-danger">
+							<div class="panel-heading">
+						    	<%=product.name%>
+						  	</div>
+						  	<div class="panel-body">
+						  	Price: $<%=product.price%> <br/>
+						  	<img src="<%=product.photo_url%>" height="350" width="350">
+						  	</div>
+						</div>
+					<!-- Panel for category & desired price: -->
+						<div class="change_info" data-product-id="<%=product.id%>" data-change-id="<%=product.id%>">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h5 class="change_category">Category: <%=product.category%> </h5>
+								</div>
+								<div class="panel-body">
+									<h5 class="change_price"><span data-plus-id="<%=product.id%>" class="glyphicon glyphicon-plus red_plus"></span> Desired Price: $<%=product.desired_price%></h5>
+								</div>
+							</div>
+						</div>
+					<!-- Hidden form to update products: -->
+						<form class="update_product" style="display: none" data-form-id="<%=product.id%>" data-product-id="<%=product.id%>">
+							<div class="input-group">
+								<span class="input-group-addon">Category:</span>
+								<input type="text" class="form-control category" placeholder="<%=product.category%>">
+							</div>
 
-				<!-- if todo.user_id == session[:current_user_id] -->
-				<br/>
-				<div class="my_products">
+							<br>
 
-					<h5>	<%=product.name%> </h5>
-					<h5>	Price: $<%=product.price%> </h5>
-					<h5>	Category: <%=product.category%> </h5>
-					<img src="<%=product.photo_url%>" height="200" width="200"><br/><br/>
-					<h5>	Desired Price: $<%=product.desired_price%> </h5>
-					<button class= "btn btn-danger">Update</button><br/><br/>
-				</div>
+							<div class="input-group">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
+								<input type="text" class="form-control desired_price" placeholder="<%=product.desired_price%>">
+							</div>
 
-				<!-- end -->
-
-				<% end %>
-			</ul>
+							<br/>
+							<!-- <button class="btn btn-danger update-btn">Submit</button> -->
+							<input type="submit" class="btn btn-danger update-btn"/>
+						</form>
+					<!-- End of Products View. -->
+						<br/>
+					</div>
+					<% end %>
+				</ul>
 			</div>
 		</div>
 		
+		<!--CHARTS-->
 		<div class="col-sm-7">
-			 <h4>Product Analytics:</h4>
-			 <div id="piechart"></div><br/>
-			 <div id="chart_div"></div><br/>
-		</div>
-	      
+			 <div id="piechart"></div>
+			 <div id="chart_div"></div>
+			 <div id="histopie"></div>
+		</div>   
     </div>
 </div>

@@ -2,12 +2,12 @@
 <html>
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
   <title>TrackerApp</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -19,10 +19,10 @@
 			<div class="navbar-header">
 				<a id="home" class="navbar-brand" href="/products"><span class="glyphicon glyphicon-stats"></span> Tracker</a>
 				<a class="navbar-brand" href="/search"><span class="glyphicon glyphicon-search"></span> Search</a>
-				<a class="navbar-brand" href="/customers"><span class="glyphicon glyphicon-question-sign"></span> Settings</a>
 				<a class="navbar-brand" href="/about"><span class="glyphicon glyphicon-info-sign"></span> Info</a>
+				<%= link_to 'Settings' , edit_shopper_path(current_shopper), :class => 'navbar-brand', id: "setting"%>
 			</div>
-				
+		
 		<p id="log_out" class="navbar-brand navbar-right"><a href="/logout" class="navbar-link"><span class="glyphicon glyphicon-remove"></span> Logout</a></p>
 				
 	</div>
@@ -38,6 +38,7 @@
 	</nav>
 
 	<%end%>
+
 
 
 <%= yield %>

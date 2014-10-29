@@ -1,0 +1,36 @@
+<script type="text/javascript">
+	var show_product = <%= raw @productsHash.to_json %>;
+</script>
+
+<div class="container" id="product-with-graph">
+		<div class="row">
+			<div class="col-sm-5 products_bar">
+
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+			    	<%= @product.name %>
+			  	</div>
+			  	<div class="panel-body">
+			  		<!-- Local Database Results -->
+			  		<img src="<%=@product.photo_url%>" height="425" width="425">
+			  		<h3> Price: $<%=@product.price%></h3>
+			  		<h3>Desired Price: $<%=@product.desired_price%></h3>
+			  		<h3>My Category: <%=@product.category%> </h3>
+			  		
+			  		<!-- API Database Results -->
+			  		<h3>UPC: <%=@product_api["results"][0]["upc"]%></h3>
+			  		<h3>Created At: <%=@product_api["results"][0]["created_at"]%></h3>
+			  		<h3>Model: <%=@product_api["results"][0]["model"]%></h3>
+			  		<h3>Product Category: <%=@product_api["results"][0]["category"]%></h3>
+			  		<h3>Description: <%=@product_api["results"][0]["description"]%></h3>
+			  		<h3>Features: <%=@product_api["results"][0]["features"]["blob"]%></h3>
+			  	</div>
+			</div>
+
+			</div>
+
+			<div class="col-sm-7 products_bar">
+				<div id="historicalprice"></div>
+			</div>
+		</div>
+</div>

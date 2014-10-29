@@ -1,5 +1,5 @@
-$(function(){
-	var results;  
+$(document).ready(function(){
+	var results = '';  
 	$('#s').click(function(){
 		var search = $('input').val();
 		console.log(search);
@@ -23,13 +23,13 @@ $(function(){
 				var upc = data["results"][i]["upc"];
 				var photo = data["results"][i]["images"][0];
 
-			$('ul').append(
+			$('ul.results').append(
 				'<br/><div class="search_results">' + 
 					'<h5 class="name"> ' + name + ' </h5>' +
 					'<h5 class="price"> Price: $' + price + '</h5>' + 
 					'<h5  class="model"> Model: ' + model + '</h5 >' + 
 					'<h5  class="upc"> UPC: ' + upc + '</h5 >' +  '<br/>' +
-					'<img class="photo" src="' + photo + '" height="200" width="200">' + '<br/><br/>' +
+					'<img class="photo" src="' + photo + '" height="425" width="425">' + '<br/><br/>' +
 					'<button data-product-id="'+i+'" class= "btn btn-danger">'+ 'Save' + '</button>' + '<br/><br/>' +
 				'</div>'
 			);
@@ -43,7 +43,7 @@ $(function(){
 		});
 	});
 
-	$('ul').click(function(e){
+	$('ul.results').click(function(e){
 		var button = $(e.target);
 		var id = button.data("product-id");
 		console.log(id);
@@ -58,7 +58,7 @@ $(function(){
 		"product":{"name": name, "price": price, "category": category, "semantics_id": semantics_id, "photo_url": photo_url}
 		}
 
-		console.log(data_hash);
+		// console.log(data_hash);
 
 		var request = $.ajax({
 			url: '/products',
@@ -68,14 +68,18 @@ $(function(){
 		});
 
 		request.done(function(data){
-	  		$('ul').append('TEST');
+	  		$(button).remove();
+	  		console.log(data);
 	  	});
 
 	  	request.fail(function(data){
-			console.log("FAIL FUNCTION");
-			$('h1').append("<p> There was an error saving your product.</p>")
+			console.log("Save Failed.");
+			$('ul.results').append("<p> There was an error saving your product.</p>")
 		});
 	});
 
+ });
 
-});
+
+
+

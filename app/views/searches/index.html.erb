@@ -1,11 +1,22 @@
 <div class="container-fluid">
+
 	
 		<div class="search_box"><br />
 				<h4>
 					<span class="glyphicon glyphicon-search"></span> Search Products:
 				</h4>
 				
-				    <input type="text" class="form-control" placeholder="Enter Product Name"><br/>
+				    <input type="text" class="form-control" placeholder="Enter Product Identifier"><br/>
+				    			
+							      <select class="form-control options" id="search_type">
+								      <option>Type of Search</option>
+								      <option>Product Name</option>
+								      <option>Product Category</option>
+								      <option>UPC Search</option>
+							      </select>
+							      <br/>
+
+
 					<button id="s" class= "btn btn-danger">
 						<span class="glyphicon glyphicon-search"></span>
 					</button>
@@ -16,10 +27,7 @@
 		<div>
 			<ul class="results">
 			</ul>
-		</div>
-
-
-	
+		</div>	
 	
 
 </div>
