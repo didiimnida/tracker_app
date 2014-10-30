@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find params[:id]
     more_product_info()
-    #historical_pricing()
+    historical_pricing()
     
   end
 

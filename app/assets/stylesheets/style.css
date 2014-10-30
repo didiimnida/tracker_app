@@ -122,4 +122,13 @@ img{
 }
 
 
+#historicalprice{
+	border: solid #eee 2px;
+	border-radius: 5px;
+	margin:20px 0px 0px 0px;
+/*	margin:0 auto;*/
+	height: 500px;
+}
+
+
 

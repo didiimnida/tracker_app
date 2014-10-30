@@ -42,20 +42,27 @@ $(function() {
 		e.preventDefault();
 		var id = $(this).data("product-id");
 		var form = $(this);
+		console.dir(id);
 		var change_product = $('*[data-change-id="' + id + '"]');
 		var my_product_div = $('*[data-overall-id="' + id + '"]');
 
-		// console.log(change_product);
+		console.log(change_product);
 		
-		var desired_price = $('.desired_price').val();
-		console.log(desired_price);
-		var category = $('.category').val();
-		console.log(category);
+		
+		// var desired_price = $('.desired_price').val();
+		// // console.log(desired_price);
+		// var category = $('.category').val();
+		// // console.log(category);
+
+		var desired_price = $('#price_'+id).val();
+		// console.log(desired_price);
+		var category = $('#category_'+id).val();
+		// console.log(category);
 
 		data_hash = {
 		"product":{"desired_price":desired_price, "category":category}
 		}
-
+		console.log(data_hash);
 		var request = $.ajax({
 			url: "/products/"+ id,
 			type: "PATCH",

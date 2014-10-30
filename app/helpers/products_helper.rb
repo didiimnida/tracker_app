@@ -13,10 +13,8 @@ module ProductsHelper
 		password = ENV['API_KEY']
 	    domain = ENV['API_SECRET']
 	    sem3 = Semantics3::Products.new(password,domain)
-	    #Change this:
 	    semantics_id = @product.semantics_id
-
-	    sem3.products_field( "sem3_id", semantics_id)
-	    @historical_pricing = sem3.get_products
+	    sem3.offers_field( "sem3_id", semantics_id)
+		@historical_pricing = sem3.get_offers
 	end
 end

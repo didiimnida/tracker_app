@@ -33,14 +33,14 @@
 						<form class="update_product" style="display: none" data-form-id="<%=product.id%>" data-product-id="<%=product.id%>">
 							<div class="input-group">
 								<span class="input-group-addon">Category:</span>
-								<input type="text" class="form-control category" placeholder="<%=product.category%>">
+								<input type="text" class="form-control category" id="category_<%=product.id%>" placeholder="<%=product.category%>">
 							</div>
 
 							<br>
 
 							<div class="input-group">
 								<span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
-								<input type="text" class="form-control desired_price" placeholder="<%=product.desired_price%>">
+								<input type="text" class="form-control desired_price" id="price_<%=product.id%>" placeholder="<%=product.desired_price%>">
 							</div>
 
 							<br/>
