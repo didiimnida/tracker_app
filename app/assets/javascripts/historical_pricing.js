@@ -4,23 +4,22 @@ $(document).ready(function(){
   console.log("NOW RUNNING historical_pricing.js");
   if (typeof show_product !== 'undefined') {
     console.log("Making the historical graph!");
-    var historical_array = ['Date', 'Price'];
-    for(var i = 0; i < show_product.length; i++){
-        var date = show_product["results"][i]["price"];
-        var price = show_product["results"][i]["firstrecorded_at"];
+    var historical_array = [['Date', 'Price']];
+
+    for(var i = 0; i < show_product["results"].length; i++){
+        var price = show_product["results"][i]["price"];
+        var date = show_product["results"][i]["lastrecorded_at"];
+        price = parseFloat(price);
+        // date = parseFloat(date);
+        // console.log(date);
+        // console.dir(price);
         historical_array.push([date, price]);
     }
-    console.log(historical_array);
+    console.dir(historical_array);
 
       google.setOnLoadCallback(drawChart);
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Date', 'Price'],
-          ['2004',  1000],
-          ['2005',  1170],
-          ['2006',  660],
-          ['2007',  1030]
-        ]);
+        var data = google.visualization.arrayToDataTable(historical_array);
 
         var options = {
           title: 'Price Trend:',
@@ -45,21 +44,6 @@ $(document).ready(function(){
 
 
 });
-
-// google.setOnLoadCallback(drawChart);
-//       function drawChart4() {
-//         var data4 = google.visualization.arrayToDataTable(historical_array);
-        
-//         var options4 = {
-//           title: 'Price Trend:',
-//           legend: {textStyle: {fontSize: 12}},
-//           fontSize: 16,
-//           fontName: 'Play',
-//           colors:['#d9534f','#2C3539', '#E5E4E2', '#d43f3a', 'grey', 'black', '#D91E37']
-//         };
-//         var chart4 = new google.visualization.LineChart(document.getElementById('historicalprice'));
-//         chart4.draw(data4, options4);
-// }
 
 
 
