@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = current_shopper.products.new(product_params)
-    @product.desired_price = 0.99
+    @product.desired_price = product_params[:price]
     respond_to do |format|
       if @product.save
         format.html{redirect_to products_path}

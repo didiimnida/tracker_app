@@ -35,13 +35,9 @@ $(document).ready(function(){
       }
 
 
-
-
   } else {
     console.log("No show_product variable found in historical_pricing.js! ", typeof show_product);
   }
-
-
 
 });
 

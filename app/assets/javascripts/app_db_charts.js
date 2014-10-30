@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function(){
 
 console.log("Start app_db_charts.js.");
   if (typeof hacky_switch !== 'undefined') {
@@ -20,6 +20,7 @@ console.log("Start app_db_charts.js.");
 //Manipulating data from json array.  
   request.done(function(data){
     // console.log(data);
+      console.log("Made ajax request to db to retrieve products data.  Making graphs.")
       var total_price = 0.00; 
       var total_desired = 0.00;
       for (var i = 0; i < data.length; i++) {
@@ -54,15 +55,10 @@ console.log("Start app_db_charts.js.");
           }
         var category_return = histogram(category_array);
         var category_array_formatted = [['Category','Frequency']];
+        //Rearrange array for graph. 
         for (var i = 0;i<category_return[0].length;i++){
         category_array_formatted.push([category_return[0][i], category_return[1][i]]);
         }
-
-// console.log("Start 3 Charts. ")
-// console.log(category_array_formatted);
-// console.log(bar_chart_array);
-// console.log(piechart_array);
-// console.log("End 3 Charts.")
 
 //START CHARTS!
     google.setOnLoadCallback(drawChart);
@@ -111,7 +107,6 @@ console.log("Start app_db_charts.js.");
         chart3.draw(data3, options3);
       //End 3rd Chart.
       }
-
 
   });
 
