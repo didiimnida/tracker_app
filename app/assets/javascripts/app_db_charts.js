@@ -1,4 +1,9 @@
 $(function() {
+
+console.log("Start app_db_charts.js.");
+  if (typeof hacky_switch !== 'undefined') {
+      console.log("Making 3 graphs from local db.");
+
 //Mainpage CHARTS: LOCAL DATABASE
 //Initializing variables. 
   var piechart_array = [['Item', 'Price']]; 
@@ -14,7 +19,7 @@ $(function() {
 
 //Manipulating data from json array.  
   request.done(function(data){
-    console.log(data);
+    // console.log(data);
       var total_price = 0.00; 
       var total_desired = 0.00;
       for (var i = 0; i < data.length; i++) {
@@ -53,10 +58,11 @@ $(function() {
         category_array_formatted.push([category_return[0][i], category_return[1][i]]);
         }
 
-console.log(category_array_formatted);
-console.log(bar_chart_array);
-console.log(piechart_array);
-
+// console.log("Start 3 Charts. ")
+// console.log(category_array_formatted);
+// console.log(bar_chart_array);
+// console.log(piechart_array);
+// console.log("End 3 Charts.")
 
 //START CHARTS!
     google.setOnLoadCallback(drawChart);
@@ -99,7 +105,7 @@ console.log(piechart_array);
           pieSliceText: 'value',
           fontSize: 16,
           fontName: 'Play',
-          colors:['#d9534f','#2C3539', '#E5E4E2', '#d43f3a', 'grey', 'black', '#D91E37']
+          colors:['#d9534f','grey','#2C3539', '#E5E4E2', '#d43f3a', 'black', '#D91E37']
         };
         var chart3 = new google.visualization.PieChart(document.getElementById('histopie'));
         chart3.draw(data3, options3);
@@ -109,8 +115,10 @@ console.log(piechart_array);
 
   });
 
+  } else {
+    console.log("Skipped if switch in app_db_charts.js.");
+  }
     
-
 });
 
 

@@ -3,7 +3,7 @@ $(document).ready(function(){
   //Get the JSON Hash from the show.html.erb script tag.  It is saved as show_product!!!
   console.log("NOW RUNNING historical_pricing.js");
   if (typeof show_product !== 'undefined') {
-    console.log("I found the show_product variable omg!");
+    console.log("Making the historical graph!");
     var historical_array = ['Date', 'Price'];
     for(var i = 0; i < show_product.length; i++){
         var date = show_product["results"][i]["price"];
@@ -11,11 +11,8 @@ $(document).ready(function(){
         historical_array.push([date, price]);
     }
     console.log(historical_array);
-  } else {
-    console.log("No show_product variable found! ", typeof show_product);
-  }
 
-  google.setOnLoadCallback(drawChart);
+      google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Date', 'Price'],
@@ -37,6 +34,15 @@ $(document).ready(function(){
 
         chart.draw(data, options);
       }
+
+
+
+
+  } else {
+    console.log("No show_product variable found in historical_pricing.js! ", typeof show_product);
+  }
+
+
 
 });
 

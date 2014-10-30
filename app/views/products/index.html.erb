@@ -1,3 +1,7 @@
+<script type="text/javascript">
+	var hacky_switch = 1;
+</script>
+
 <div class="container">
   	<div class="row">
     	<div class="col-sm-5 products_bar">
@@ -7,14 +11,16 @@
 					<br/>
 					<!-- Delete & Show Icons -->
 					<div class="my_products" data-product-id="<%=product.id%>" data-overall-id="<%=product.id%>">
-						<h4 class="product_delete"><span class="glyphicon glyphicon-remove">  </span><a href='/products/<%=product.id%>'><span class="glyphicon glyphicon-eye-open"></a></h4>
+						<h4>
+							<span class="glyphicon glyphicon-remove product_delete">  </span>
+							<a href='/products/<%=product.id%>'><span class="glyphicon glyphicon-eye-open"></a></h4>
 					<!-- Panel for name & price: -->
 						<div class="panel panel-danger">
 							<div class="panel-heading">
 						    	<%=product.name%>
 						  	</div>
 						  	<div class="panel-body">
-						  	Price: $<%=product.price%> <br/>
+						  	Price: <%=number_to_currency(product.price)%> <br/>
 						  	<img src="<%=product.photo_url%>" height="350" width="350">
 						  	</div>
 						</div>
@@ -25,7 +31,7 @@
 									<h5 class="change_category">Category: <%=product.category%> </h5>
 								</div>
 								<div class="panel-body">
-									<h5 class="change_price"><span data-plus-id="<%=product.id%>" class="glyphicon glyphicon-plus red_plus"></span> Desired Price: $<%=product.desired_price%></h5>
+									<h5 class="change_price"><span data-plus-id="<%=product.id%>" class="glyphicon glyphicon-plus red_plus"></span> Desired Price: <%=number_to_currency(product.desired_price)%></h5>
 								</div>
 							</div>
 						</div>

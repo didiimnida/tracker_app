@@ -1,7 +1,7 @@
 $(function() {
 
 
-	$('.product_delete').click(function(e){
+	$('.product_delete ').click(function(e){
 	  	// console.log(e.target);
 	    var div = $(e.target).parent().parent();
 	    // console.log(div);
@@ -42,11 +42,11 @@ $(function() {
 		e.preventDefault();
 		var id = $(this).data("product-id");
 		var form = $(this);
-		console.dir(id);
+		// console.dir(id);
 		var change_product = $('*[data-change-id="' + id + '"]');
 		var my_product_div = $('*[data-overall-id="' + id + '"]');
 
-		console.log(change_product);
+		// console.log(change_product);
 		
 		
 		// var desired_price = $('.desired_price').val();
@@ -62,7 +62,7 @@ $(function() {
 		data_hash = {
 		"product":{"desired_price":desired_price, "category":category}
 		}
-		console.log(data_hash);
+		// console.log(data_hash);
 		var request = $.ajax({
 			url: "/products/"+ id,
 			type: "PATCH",
