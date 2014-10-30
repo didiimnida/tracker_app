@@ -43,35 +43,52 @@ $(function() {
 		var id = $(this).data("product-id");
 		var form = $(this);
 		var change_product = $('*[data-change-id="' + id + '"]');
+		var my_product_div = $('*[data-overall-id="' + id + '"]');
 
-		form.toggle('slow');
-		change_product.toggle('slow');
-
-		console.log(change_product);
+		// console.log(change_product);
 		
+		var desired_price = $('.desired_price').val();
+		console.log(desired_price);
+		var category = $('.category').val();
+		console.log(category);
 
-		// var desired_price = $('.desired_price').val();
-		// console.log(desired_price);
-		// var category = $('.category').val();
-		// console.log(category);
+		data_hash = {
+		"product":{"desired_price":desired_price, "category":category}
+		}
 
-	// 	data_hash = {
-	// 	"product":{"desired_price":desired_price, "category":category}
-	// 	}
+		var request = $.ajax({
+			url: "/products/"+ id,
+			type: "PATCH",
+			data: data_hash,
+			dataType: "json"
+		});
 
-	// 	var request = $.ajax({
-	// 		url: "/products/"+ id,
-	// 		type: "PATCH",
-	// 		data: data_hash,
-	// 		dataType: "json"
-	// 	});
+		request.done(function(data){
+			form.toggle('slow');
+			// console.log(id);
+			// console.log(desired_price);
+			// console.log(category);
 
-	// 	request.done(function(data){
-	// 		console.log("Hi");
-	// 	});
+			my_product_div.append(
+				//NOT WORKING! ONLY WORKS ON FIRST ELEMENT IN LIST. 
+				// '<div class="change_info" data-product-id="' + id '" data-change-id="' + id + '">' + 
 
-	// $(".change_info").toggle('slow');
-	// $(".update_product").toggle('slow');
+					'<div class="panel panel-default">' +
+						'<div class="panel-heading">' +
+							'<h5 class="change_category">Category: '+category+'</h5>' +
+						'</div>' +
+						'<div class="panel-body">' +
+							'<h5 class="change_price"><span data-plus-id="'+id +'" class="glyphicon glyphicon-plus red_plus"></span> Desired Price: $' + desired_price+'</h5>' +
+						'</div>' +
+					'</div>' 
+
+				// + '</div>'
+			);
+
+			// change_product.toggle('slow');
+		});
+
+		
 	});
 
 

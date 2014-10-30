@@ -21,6 +21,5 @@ class SearchesController < ApplicationController
 		#Same as before, but want to retrieve the next 10. 
 	end
 
-
 	
 end

@@ -6,7 +6,7 @@
 					<%@products.each do |product| %>
 					<br/>
 					<!-- Delete & Show Icons -->
-					<div class="my_products" data-product-id="<%=product.id%>">
+					<div class="my_products" data-product-id="<%=product.id%>" data-overall-id="<%=product.id%>">
 						<h4 class="product_delete"><span class="glyphicon glyphicon-remove">  </span><a href='/products/<%=product.id%>'><span class="glyphicon glyphicon-eye-open"></a></h4>
 					<!-- Panel for name & price: -->
 						<div class="panel panel-danger">

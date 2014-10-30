@@ -15,8 +15,8 @@ module ProductsHelper
 	    sem3 = Semantics3::Products.new(password,domain)
 	    #Change this:
 	    semantics_id = @product.semantics_id
+
 	    sem3.products_field( "sem3_id", semantics_id)
-	    
-	    @historicalHash = sem3.get_products
+	    @historical_pricing = sem3.get_products
 	end
 end
