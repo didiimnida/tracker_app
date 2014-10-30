@@ -53,7 +53,9 @@ $(function() {
         category_array_formatted.push([category_return[0][i], category_return[1][i]]);
         }
 
-//    console.log(category_array_formatted);
+console.log(category_array_formatted);
+console.log(bar_chart_array);
+console.log(piechart_array);
 
 
 //START CHARTS!
@@ -72,6 +74,7 @@ $(function() {
         };
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
         chart.draw(data, options);
+      //End 1st Chart. 
       //Add 2nd Chart:
         var data2 = google.visualization.arrayToDataTable(bar_chart_array);
 
@@ -86,6 +89,7 @@ $(function() {
         var chart2 = new google.visualization.BarChart(document.getElementById('chart_div'));
 
         chart2.draw(data2, options2);
+      //End 2nd Chart.
       //Add 3rd Chart:
         var data3 = google.visualization.arrayToDataTable(category_array_formatted);
         
@@ -99,7 +103,7 @@ $(function() {
         };
         var chart3 = new google.visualization.PieChart(document.getElementById('histopie'));
         chart3.draw(data3, options3);
-
+      //End 3rd Chart.
       }
 
 
