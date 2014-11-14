@@ -10,9 +10,10 @@ $(document).ready(function(){
         var price = show_product["results"][i]["price"];
         var date = show_product["results"][i]["lastrecorded_at"];
         price = parseFloat(price);
-        // date = parseFloat(date);
-        // console.log(date);
-        // console.dir(price);
+        // price2 = parseFloat(price.toFixed(2)); //???
+        // console.log(price2);
+        var date = new Date(date*1000);
+        
         historical_array.push([date, price]);
     }
     console.dir(historical_array);
